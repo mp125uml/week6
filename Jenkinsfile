@@ -1,7 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
 
 pipeline {
-     agent any
+     agent { label 'jenkins' }
      stages {
           stage("Compile") {
                steps {
