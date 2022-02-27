@@ -15,6 +15,9 @@ pipeline {
                }
           }
           stage("Code coverage") {
+               when {
+        	    env.BRANCH == 'master'
+    	       },
                steps {
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
@@ -26,6 +29,9 @@ pipeline {
                }
           }
 	  stage("Checkstyle added") {
+	      when {
+                    env.BRANCH == 'master'
+              },
 	      steps {
 		   sh "./gradlew checkstyleTest"
 	      }
