@@ -3,12 +3,6 @@ properties([pipelineTriggers([githubPush()])])
 pipeline {
      agent any
      stages {
-          stage("Change Request") {
-               when { changeRequest() }
-               steps {
-                    sh "uname -a; date"
-               }
-          }
 	  stage("Compile") {
                steps {
                     sh "./gradlew compileJava"
