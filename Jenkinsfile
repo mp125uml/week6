@@ -8,6 +8,7 @@ pipeline {
                steps {
                     sh "uname -a; date"
                }
+          }
 	  stage("Compile") {
                steps {
                     sh "./gradlew compileJava"
